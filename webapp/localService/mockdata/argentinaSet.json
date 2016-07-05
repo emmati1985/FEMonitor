@@ -1,0 +1,34 @@
+[{
+	"Dbkey": "1",
+	"Cae_ref": "0065594900",
+	"Cae_refyr": "SD",
+	"Cae_reftyp": "SD",
+	"Budat": "/Date(1467514800000)/",
+	"Cae_status": "Procesado",
+	"Cae_num": "233490",
+	"Cae_duedate": "/Date(1469588400000)/"
+}, {
+	"Dbkey": "2",
+	"Cae_ref": "0065594901",
+	"Cae_refyr": "SD",
+	"Cae_reftyp": "SD",
+	"Budat": "/Date(1467514800000)/",
+	"Cae_status": "Procesado",
+	"Cae_num": "233491",
+	"Cae_duedate": "/Date(1469588400000)/"
+}, {
+	"Dbkey": "3",
+	"Cae_ref": "0065594902",
+	"Cae_refyr": "SD",
+	"Cae_reftyp": "SD",
+	"Budat": "/Date(1467342000000)/",
+	"Cae_status": "Error",
+	"Rej_reason": "Surcursal No Valida"
+}, {
+	"Dbkey": "4",
+	"Cae_ref": "0065594903",
+	"Cae_refyr": "SD",
+	"Cae_reftyp": "SD",
+	"Budat": "/Date(1467428400000)/",
+	"Cae_status": "No Procesado"
+}]

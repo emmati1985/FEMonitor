@@ -1,0 +1,87 @@
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices
+        xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="FEMonitor">
+            <EntityType Name="facturas">
+                <Key>
+                    <PropertyRef Name="Dbkey"/>
+                </Key>
+                <Property Name="Dbkey" Type="Edm.String" Nullable="false" sap:label="Clave Factura"></Property>
+                <Property Name="Ftype" Type="Edm.String" Nullable="false" sap:label="Tipo de Factura"></Property>
+                <Property Name="Factura" Type="Edm.String" Nullable="false" sap:label="Nro Factura a Mostrar"></Property>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="true" sap:label="Nro Factura"></Property>
+                <Property Name="Fecha" Type="Edm.DateTime" Nullable="true" sap:label="Fecha Factura"></Property>
+                <Property Name="Importe" Type="Edm.Decimal" Nullable="true" sap:label="Importe"></Property>
+                <Property Name="Referencia" Type="Edm.String" Nullable="true" sap:label="Nro Referencia"></Property>
+                <Property Name="Moneda" Type="Edm.String" Nullable="true" sap:label="Moneda"></Property>
+                <NavigationProperty Name="argentina" Relationship="FEMonitor.facturas_argentina" ToRole="argentina" FromRole="facturas"></NavigationProperty>
+                <NavigationProperty Name="historial_sd" Relationship="FEMonitor.facturas_historial_sd" ToRole="historial_sd" FromRole="facturas"></NavigationProperty>
+            </EntityType>
+            <EntityType Name="argentina">
+                <Key>
+                    <PropertyRef Name="Dbkey"/>
+                </Key>
+                <Property Name="Dbkey" Type="Edm.String" Nullable="false" sap:label="Clave de Factura"></Property>
+                <Property Name="Cae_ref" Type="Edm.String" Nullable="false" sap:label="Nro Doc Referencia"></Property>
+                <Property Name="Cae_refyr" Type="Edm.String" Nullable="false" sap:label="CAE"></Property>
+                <Property Name="Cae_reftyp" Type="Edm.String" Nullable="false" sap:label="CAE"></Property>
+                <Property Name="Budat" Type="Edm.DateTime" Nullable="false" sap:label="CAE"></Property>
+                <Property Name="Cae_status" Type="Edm.String" Nullable="false" sap:label="CAE"></Property>
+                <Property Name="Cae_num" Type="Edm.String" Nullable="false" sap:label="CAE"></Property>
+                <Property Name="Cae_duedate" Type="Edm.DateTime" Nullable="false" sap:label="CAE"></Property>
+                <Property Name="Rej_reason" Type="Edm.String" Nullable="false" sap:label="CAE"></Property>
+            </EntityType>
+            <EntityType Name="historial_sd">
+                <Key>
+                    <PropertyRef Name="Dbkey"/>
+                </Key>
+                <Property Name="Dbkey" Type="Edm.String" Nullable="false" sap:label="Clave Factura"></Property>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" sap:label="Factura"></Property>
+                <Property Name="Documento" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="Tipo_documento" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="Posicion" Type="Edm.String" Nullable="false"></Property>
+                <Property Name="Texto_documento" Type="Edm.String" Nullable="false"></Property>
+            </EntityType>
+            <Association Name="facturas_argentina">
+                <End Type="FEMonitor.facturas" Role="facturas" Multiplicity="0..1"></End>
+                <End Type="FEMonitor.argentina" Role="argentina" Multiplicity="*"></End>
+                <ReferentialConstraint>
+                    <Principal Role="facturas">
+                        <PropertyRef Name="Dbkey"/>
+                    </Principal>
+                    <Dependent Role="argentina">
+                        <PropertyRef Name="Dbkey"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="facturas_historial_sd">
+                <End Type="FEMonitor.facturas" Role="facturas" Multiplicity="0..1"></End>
+                <End Type="FEMonitor.historial_sd" Role="historial_sd" Multiplicity="*"></End>
+                <ReferentialConstraint>
+                    <Principal Role="facturas">
+                        <PropertyRef Name="Dbkey"/>
+                    </Principal>
+                    <Dependent Role="historial_sd">
+                        <PropertyRef Name="Dbkey"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="FEMonitor" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="facturasSet" EntityType="FEMonitor.facturas"></EntitySet>
+                <EntitySet Name="argentinaSet" EntityType="FEMonitor.argentina"></EntitySet>
+                <EntitySet Name="historial_sdSet" EntityType="FEMonitor.historial_sd"></EntitySet>
+                <AssociationSet Name="facturas_argentinaSet" Association="FEMonitor.facturas_argentina">
+                    <End Role="facturas" EntitySet="facturasSet"></End>
+                    <End Role="argentina" EntitySet="argentinaSet"></End>
+                </AssociationSet>
+                <AssociationSet Name="facturas_historial_sdSet" Association="FEMonitor.facturas_historial_sd">
+                    <End Role="facturas" EntitySet="facturasSet"></End>
+                    <End Role="historial_sd" EntitySet="historial_sdSet"></End>
+                </AssociationSet>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

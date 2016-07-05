@@ -1,0 +1,19 @@
+[{
+	"Vbeln": "0065594900",
+	"Dbkey": "1",
+	"Documento": "0034594900",
+	"Tipo_documento": "ZEPT",
+	"Texto_documento": "Pedido"
+}, {
+	"Dbkey": "1",
+	"Vbeln": "0065594900",
+	"Documento": "0070594922",
+	"Tipo_documento": "ZENT",
+	"Texto_documento": "Entrega"
+}, {
+	"Dbkey": "1",
+	"Vbeln": "0065594900",
+	"Documento": "0021594455",
+	"Tipo_documento": "ZENC",
+	"Texto_documento": "Nota de Credito"
+}]

@@ -1,0 +1,51 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" controllerName="femonitor.controller.Detail">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+		<semantic:content>
+			<ObjectHeader id="objectHeader" title="{Factura}" number="{ path: 'Importe', formatter: '.formatter.currencyValue' }" numberUnit="{Moneda}" intro="Nro Referencia : {Referencia}">
+			    <attributes>
+			        <ObjectAttribute active="false" id="__attribute18" title="Fecha" text="{ path: 'Fecha', type: 'sap.ui.model.type.Date', formatOptions: { style: 'long' } }"/>
+			    </attributes>
+			</ObjectHeader>
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}" text="Argentina" content="{argentina}">
+						<content>
+							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true" layout="ResponsiveGridLayout" id="__form0">
+								<sap.ui.layout.form:content xmlns:sap.ui.layout.form="sap.ui.layout.form">
+									<Label text="CAE" id="__label0"/>
+									<Text text="{Cae_num}" maxLines="0" id="__input0"/>
+									<Label text="CAE STATUS" id="__label1"/>
+									<Text text="{Cae_status}" maxLines="0" id="__input1"/>
+									<Label text="Fecha CAE" id="__label2"/>
+									<Text text="{ path: 'Budat', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' } }" maxLines="0" id="__picker0"/>
+									<Label text="Vencimiento CAE" id="__label3"/>
+									<Text text="{ path: 'Cae_duedate', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' } }" maxLines="0" id="__picker1"/>
+									<Label id="__label4" text="Razon Rechazo"/>
+									<Text text="{Rej_reason}" maxLines="0" id="__input2"/></sap.ui.layout.form:content>
+								<sap.ui.layout.form:customData>
+									<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>
+								</sap.ui.layout.form:customData>
+							</sap.ui.layout.form:SimpleForm>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://history" tooltip="{i18n>detailIconTabBarAttachments}" text="Historial">
+						<content>
+							<List noDataText="Drop list items here" id="__list2" items="{historial_sd}">
+								<items>
+									<ObjectListItem type="Active" counter="0" number="Item:{Posicion}" markFavorite="false" markFlagged="false" showMarkers="false" id="__item15" title="{Documento}">
+										<attributes>
+											<ObjectAttribute active="false" id="__attribute205" text="{Tipo_documento} : {Texto_documento}"/>
+										</attributes>
+									</ObjectListItem>
+								</items>
+							</List>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+	<semantic:customFooterContent>
+	    <Button width="100px" id="__button0" icon="sap-icon://repost" type="Accept" tooltip="Reenviar Factura" text="Reenviar"/>
+	</semantic:customFooterContent>
+	</semantic:DetailPage>
+</mvc:View>
