@@ -1,9 +1,9 @@
 {
   "run": [
     {
-      "filePath": "/webapp/index.html",
-      "previewMode": 0,
-      "dataMode": 1,
+      "filePath": "/webapp/test.html",
+      "previewMode": 1,
+      "dataMode": 0,
       "workspace": "withoutWorkspace",
       "ui5ActiveVersion": null,
       "ui5VerSource": null,
@@ -14,15 +14,14 @@
       "_metadata": {
         "id": 792971,
         "runnerId": "webapprunner",
-        "displayName": "Run index.html",
-        "lastRunTimeStamp": 1467733389045
+        "displayName": "Run index.html"
       }
     },
     {
-      "filePath": "/FEMonitor2/webapp/test/mockServer.html",
-      "previewMode": 0,
+      "filePath": "/webapp/test/mockServer.html",
+      "previewMode": 1,
       "dataMode": 0,
-      "workspace": "withoutWorkspace",
+      "workspace": "withWorkspace",
       "urlParameters": [
         {
           "paramName": "",
@@ -36,9 +35,10 @@
         }
       ],
       "hashParameter": "",
-      "ui5ActiveVersion": "1.36.12",
+      "ui5ActiveVersion": "",
       "ui5VerSource": null,
-      "isDefaultVersion": 1,
+      "isDefaultVersion": 0,
+      "appsVersion": [],
       "_metadata": {
         "id": 37567899,
         "runnerId": "webapprunner",
