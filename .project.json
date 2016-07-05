@@ -56,8 +56,8 @@
     "resourceModelName": "i18n"
   },
   "mockpreview": {
-    "mockUri": "",
-    "metadataFilePath": "",
+    "mockUri": "/here/goes/your/serviceurl/",
+    "metadataFilePath": "localService/metadata.xml",
     "loadJSONFiles": true,
     "loadCustomRequests": false,
     "mockRequestsFilePath": ""

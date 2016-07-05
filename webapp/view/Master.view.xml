@@ -1,37 +1,30 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:semantic="sap.m.semantic"
-	controllerName="femonitor.controller.Master">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:semantic="sap.m.semantic" controllerName="femonitor.controller.Master">
 	<semantic:MasterPage id="page" title="{masterView>/title}" navButtonPress="onNavBack" showNavButton="true">
 		<semantic:subHeader>
 			<Bar id="headerBar">
 				<contentMiddle>
-					<SearchField id="searchField" showRefreshButton="{= !${device>/support/touch} }" tooltip="{i18n>masterSearchTooltip}" width="100%"
-						search="onSearch"></SearchField>
+					<SearchField id="searchField" showRefreshButton="{= !${device>/support/touch} }" tooltip="{i18n>masterSearchTooltip}" width="100%" search="onSearch"/>
 				</contentMiddle>
 			</Bar>
 		</semantic:subHeader>
 		<semantic:content>
 			<PullToRefresh id="pullToRefresh" visible="{device>/support/touch}" refresh="onRefresh"/>
 			<!-- For client side filtering add this to the items attribute:  parameters: {operationMode: 'Client'}}" -->
-			<List id="list"
-				items="{ path: '/facturasSet', sorter: { path: 'Factura', descending: false }, groupHeaderFactory: '.createGroupHeader' }"
-				busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}"
-				mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" growing="true" growingScrollToLoad="true"
-				updateFinished="onUpdateFinished" selectionChange="onSelectionChange"> 
+			<!--parameters : { expand: 'argentina' }, -->
+			<List id="list" items="{ path: '/facturasSet', parameters : { expand: 'argentina' },
+			sorter: { path: 'Factura', descending: false }, groupHeaderFactory: '.createGroupHeader' }" busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}" mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished" selectionChange="onSelectionChange">
 				<infoToolbar>
 					<Toolbar active="true" id="filterBar" visible="{masterView>/isFilterBarVisible}" press="onOpenViewSettings">
 						<Title id="filterBarLabel" text="{masterView>/filterBarLabel}"/>
 					</Toolbar>
 				</infoToolbar>
 				<items>
-					<ObjectListItem type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" press="onSelectionChange" title="{Factura}"
-						number="{ path: 'Importe', formatter: '.formatter.currencyValue' }" numberUnit="{Moneda}" intro="{Referencia}">
+					<ObjectListItem type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" press="onSelectionChange" title="{Factura}" number="{ path: 'Importe', formatter: '.formatter.currencyValue' }" numberUnit="{Moneda}" intro="{Referencia}">
 						<attributes>
-							<ObjectAttribute active="false" id="__attribute8"
-								text="{ path: 'Fecha', type: 'sap.ui.model.type.Date', formatOptions: { style: 'short' } }"/>
+							<ObjectAttribute title="CAENUM" text="{argentina/Cae_num}" active="false" id="__attribute0"/>
+							<ObjectAttribute active="false" id="__attribute8" text="{ path: 'Fecha', type: 'sap.ui.model.type.Date', formatOptions: { style: 'short' } }"/>
 						</attributes>
-						<firstStatus>
-	
-						</firstStatus>
+						<firstStatus/>
 					</ObjectListItem>
 				</items>
 			</List>
