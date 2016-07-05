@@ -46,8 +46,8 @@
                 <Property Name="Texto_documento" Type="Edm.String" Nullable="false"></Property>
             </EntityType>
             <Association Name="facturas_argentina">
-                <End Type="FEMonitor.facturas" Role="facturas" Multiplicity="0..1"></End>
-                <End Type="FEMonitor.argentina" Role="argentina" Multiplicity="*"></End>
+                <End Type="FEMonitor.facturas" Role="facturas" Multiplicity="1"></End>
+                <End Type="FEMonitor.argentina" Role="argentina" Multiplicity="1"></End>
                 <ReferentialConstraint>
                     <Principal Role="facturas">
                         <PropertyRef Name="Dbkey"/>
