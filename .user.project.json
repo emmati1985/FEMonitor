@@ -1,7 +1,7 @@
 {
   "run": [
     {
-      "filePath": "/webapp/test.html",
+      "filePath": "/webapp/test/mockServer.html",
       "previewMode": 1,
       "dataMode": 0,
       "workspace": "withoutWorkspace",
@@ -14,14 +14,15 @@
       "_metadata": {
         "id": 792971,
         "runnerId": "webapprunner",
-        "displayName": "Run index.html"
+        "displayName": "Run index.html",
+        "lastRunTimeStamp": 1467736966851
       }
     },
     {
       "filePath": "/webapp/test/mockServer.html",
       "previewMode": 1,
-      "dataMode": 0,
-      "workspace": "withWorkspace",
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
       "urlParameters": [
         {
           "paramName": "",
@@ -34,7 +35,7 @@
           "paramActive": false
         }
       ],
-      "hashParameter": "",
+      "hashParameter": "testing-display",
       "ui5ActiveVersion": "",
       "ui5VerSource": null,
       "isDefaultVersion": 0,

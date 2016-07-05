@@ -8,20 +8,20 @@
 			</ObjectHeader>
 			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
 				<items>
-					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}" text="Argentina" content="{argentina}">
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}" text="Argentina"> <!--content="{argentina}">-->
 						<content>
 							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true" layout="ResponsiveGridLayout" id="__form0">
 								<sap.ui.layout.form:content xmlns:sap.ui.layout.form="sap.ui.layout.form">
 									<Label text="CAE" id="__label0"/>
-									<Text text="{Cae_num}" maxLines="0" id="__input0"/>
+									<Text text="{argentina/Cae_num}" maxLines="0" id="__input0"/>
 									<Label text="CAE STATUS" id="__label1"/>
-									<Text text="{Cae_status}" maxLines="0" id="__input1"/>
+									<Text text="{argentina/Cae_status}" maxLines="0" id="__input1"/>
 									<Label text="Fecha CAE" id="__label2"/>
-									<Text text="{ path: 'Budat', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' } }" maxLines="0" id="__picker0"/>
+									<Text text="{ path: 'argentina/Budat', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' } }" maxLines="0" id="__picker0"/>
 									<Label text="Vencimiento CAE" id="__label3"/>
-									<Text text="{ path: 'Cae_duedate', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' } }" maxLines="0" id="__picker1"/>
+									<Text text="{ path: 'argentina/Cae_duedate', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' } }" maxLines="0" id="__picker1"/>
 									<Label id="__label4" text="Razon Rechazo"/>
-									<Text text="{Rej_reason}" maxLines="0" id="__input2"/></sap.ui.layout.form:content>
+									<Text text="{argentina/Rej_reason}" maxLines="0" id="__input2"/></sap.ui.layout.form:content>
 								<sap.ui.layout.form:customData>
 									<sap.ui.core:CustomData xmlns:sap.ui.core="sap.ui.core" key="w5g.dt.editable" value="false" id="__data8"/>
 								</sap.ui.layout.form:customData>

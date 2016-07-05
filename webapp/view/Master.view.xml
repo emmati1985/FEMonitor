@@ -11,7 +11,7 @@
 			<PullToRefresh id="pullToRefresh" visible="{device>/support/touch}" refresh="onRefresh"/>
 			<!-- For client side filtering add this to the items attribute:  parameters: {operationMode: 'Client'}}" -->
 			<!--parameters : { expand: 'argentina' }, -->
-			<List id="list" items="{ path: '/facturasSet',
+			<List id="list" items="{ path: '/facturasSet', parameters : { expand: 'argentina' },
 			sorter: { path: 'Factura', descending: false }, groupHeaderFactory: '.createGroupHeader' }" busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}" mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished" selectionChange="onSelectionChange">
 				<infoToolbar>
 					<Toolbar active="true" id="filterBar" visible="{masterView>/isFilterBarVisible}" press="onOpenViewSettings">
@@ -21,7 +21,7 @@
 				<items>
 					<ObjectListItem type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" press="onSelectionChange" title="{Factura}" number="{ path: 'Importe', formatter: '.formatter.currencyValue' }" numberUnit="{Moneda}" intro="{Referencia}">
 						<attributes>
-							<!--<ObjectAttribute title="CAENUM" text="{argentina/Cae_num}" active="false" id="__attribute0"/>-->
+							<ObjectAttribute title="CAESTAT" text="{argentina/Cae_status}" active="false" id="__attribute0"/>
 							<ObjectAttribute active="false" id="__attribute8" text="{ path: 'Fecha', type: 'sap.ui.model.type.Date', formatOptions: { style: 'short' } }"/>
 						</attributes>
 						<firstStatus/>
