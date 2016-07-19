@@ -1,30 +1,38 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:semantic="sap.m.semantic" controllerName="femonitor.controller.Master">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:semantic="sap.m.semantic"
+	controllerName="femonitor.controller.Master">
 	<semantic:MasterPage id="page" title="{masterView>/title}" navButtonPress="onNavBack" showNavButton="true">
 		<semantic:subHeader>
 			<Bar id="headerBar">
 				<contentMiddle>
-					<SearchField id="searchField" showRefreshButton="{= !${device>/support/touch} }" tooltip="{i18n>masterSearchTooltip}" width="100%" search="onSearch"/>
+					<SearchField id="searchField" showRefreshButton="{= !${device>/support/touch} }" tooltip="{i18n>masterSearchTooltip}" width="100%"
+						search="onSearch"></SearchField>
 				</contentMiddle>
 			</Bar>
 		</semantic:subHeader>
 		<semantic:content>
 			<PullToRefresh id="pullToRefresh" visible="{device>/support/touch}" refresh="onRefresh"/>
 			<!-- For client side filtering add this to the items attribute:  parameters: {operationMode: 'Client'}}" -->
-			<!--parameters : { expand: 'argentina' }, -->
-			<List id="list" items="{ path: '/facturasSet', parameters : { expand: 'argentina' },
-			sorter: { path: 'Factura', descending: false }, groupHeaderFactory: '.createGroupHeader' }" busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}" mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished" selectionChange="onSelectionChange">
+			<List id="list"
+				items="{ path: '/facturasSet', sorter: { path: 'Factura', descending: false }, groupHeaderFactory: '.createGroupHeader', parameters : { expand: 'argentina' } }"
+				busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}"
+				mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" growing="true" growingScrollToLoad="true"
+				updateFinished="onUpdateFinished" selectionChange="onSelectionChange">
 				<infoToolbar>
 					<Toolbar active="true" id="filterBar" visible="{masterView>/isFilterBarVisible}" press="onOpenViewSettings">
 						<Title id="filterBarLabel" text="{masterView>/filterBarLabel}"/>
 					</Toolbar>
 				</infoToolbar>
 				<items>
-					<ObjectListItem type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" press="onSelectionChange" title="{Factura}" number="{ path: 'Importe', formatter: '.formatter.currencyValue' }" numberUnit="{Moneda}" intro="{Referencia}">
+					<ObjectListItem type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" press="onSelectionChange" title="{Factura}"
+						number="{ path: 'Importe', formatter: '.formatter.currencyValue' }" numberUnit="{Moneda}" intro="{Referencia}">
 						<attributes>
-							<ObjectAttribute title="CAESTAT" text="{argentina/Cae_status}" active="false" id="__attribute0"/>
-							<ObjectAttribute active="false" id="__attribute8" text="{ path: 'Fecha', type: 'sap.ui.model.type.Date', formatOptions: { style: 'short' } }"/>
+							<ObjectAttribute active="false" id="__attribute8"
+								text="{ path: 'Fecha', type: 'sap.ui.model.type.Date', formatOptions: { style: 'short' } }"/>
 						</attributes>
-						<firstStatus/>
+						<firstStatus>
+							<ObjectStatus busy="false" busyIndicatorDelay="1000" visible="true" title="Status" text="{argentina/Cae_status}"
+								state="{ path: 'argentina/Cae_status', formatter: '.formatter.statusState' }" icon="" iconDensityAware="true" textDirection="Inherit"></ObjectStatus>
+						</firstStatus>
 					</ObjectListItem>
 				</items>
 			</List>
@@ -33,6 +41,8 @@
 			<semantic:SortSelect id="sort" selectedKey="{masterView>/sortBy}" change="onSort">
 				<core:Item id="masterSort1" key="Factura" text="{i18n>masterSort1}"/>
 				<core:Item id="masterSort2" key="Importe" text="{i18n>masterSort2}"/>
+				<core:Item id="masterSort3" key="argentina/Cae_status" text="{i18n>masterSort3}"/>
+				<core:Item id="masterSort4" key="Fecha" text="{i18n>masterSort4}"/>
 			</semantic:SortSelect>
 		</semantic:sort>
 		<semantic:filter>
@@ -41,7 +51,8 @@
 		<semantic:group>
 			<semantic:GroupSelect id="group" selectedKey="{masterView>/groupBy}" change="onGroup">
 				<core:Item id="masterGroupNone" key="None" text="{i18n>masterGroupNone}"/>
-				<core:Item id="masterGroup1" key="Importe" text="{i18n>masterGroup1}"/>
+				<core:Item id="masterGroup1" key="argentina/Cae_status" text="{i18n>masterGroup1}"/>
+				<core:Item id="masterGroup2" key="Fecha" text="{i18n>masterGroup2}"/>
 			</semantic:GroupSelect>
 		</semantic:group>
 	</semantic:MasterPage>

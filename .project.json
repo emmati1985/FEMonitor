@@ -13,7 +13,8 @@
     "excludedFiles": [
       "test.html"
     ],
-    "buildRequired": true
+    "buildRequired": true,
+    "lastBuildDateTime": "Mon, 04 Jul 2016 18:06:18 GMT"
   },
   "dataBinding": {
     "/webapp/view/App.view.xml": {
@@ -83,5 +84,10 @@
         }
       }
     ]
+  },
+  "hcpdeploy": {
+    "account": "p1381510172trial",
+    "name": "femonitor2",
+    "lastVersionWeTriedToDeploy": "1.0.0"
   }
 }

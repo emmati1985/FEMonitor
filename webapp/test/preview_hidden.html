@@ -1,37 +1,20 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Monitor Factura Electronica</title>
 
 	<!-- Bootstrapping UI5 -->
-	<script id="sap-ui-bootstrap" src="../resources/sap-ui-core.js" data-sap-ui-libs="sap.m" data-sap-ui-theme="sap_bluecrystal" data-sap-ui-compatversion="edge" data-sap-ui-resourceroots="{&quot;femonitor&quot;: &quot;../&quot;}" data-sap-ui-frameoptions="allow"> 	// NON-SECURE setting for testing environment
+	<script id="sap-ui-bootstrap"
+			src="../resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-resourceroots='{"femonitor": "../"}'
+			data-sap-ui-frameOptions='allow'> 	// NON-SECURE setting for testing environment
 	</script>
-	
-<script>
-var bRunWithMock = true;
-var sRunWithMock = jQuery.sap.getUriParameters().get('run-with-mock');
-if (sRunWithMock === 'false') {
-bRunWithMock = false;
-}
-if (bRunWithMock) {
-jQuery.sap.require('sap.ui.core.util.MockServer');
-var uri = '/here/goes/your/serviceurl/';
-var oMock = new sap.ui.core.util.MockServer({rootUri : uri});
-var _sAppModulePath = "femonitor/";
-var sMetadataPath = "localService/metadata.xml";
-var sMetadataUrl = jQuery.sap.getModulePath(_sAppModulePath + sMetadataPath.replace(".xml", ""), ".xml");
-var sMockdataBaseUrlPath = sMetadataUrl.replace(/[^/]+$/, 'mockdata');
-oMock.simulate(sMetadataUrl, { sMockdataBaseUrl : sMockdataBaseUrlPath, bGenerateMissingMockData : true });
-oMock.start();
-	jQuery(document).ready(function($) {  sap.m.MessageToast.show('Running in demo mode with mock data.', {  duration : 4000 });
-});
-}
-</script>
-
-
 
 	<script>
 		sap.ui.getCore().attachInit(function () {
@@ -53,7 +36,7 @@ oMock.start();
 		});
 	</script>
 
-<script src='https://webide-p1453471365trial.dispatcher.hanatrial.ondemand.com/plugins/pluginrepository/hybrid/cordovafacade/cordova.js' data-original-url='extended_runnable_file.html'></script>
+<script src='https://webide-p1381510172trial.dispatcher.hanatrial.ondemand.com/plugins/pluginrepository/hybrid/cordovafacade/cordova.js' data-original-url='mockServer.html'></script>
 <style>#interactive.viewport video{width:320px;height:240px;}
 #interactive.viewport .drawingBuffer{width:320px;height:240px;position:absolute;}</style></head>
 

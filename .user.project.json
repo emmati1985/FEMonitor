@@ -3,127 +3,20 @@
     {
       "filePath": "/webapp/test/mockServer.html",
       "previewMode": 1,
-      "dataMode": 0,
+      "dataMode": 1,
       "workspace": "withoutWorkspace",
       "ui5ActiveVersion": null,
       "ui5VerSource": null,
       "isDefaultVersion": 0,
       "urlParameters": [],
+      "urlParametersNotNeeded": false,
       "hashParameter": "",
       "backendSystem": [],
       "_metadata": {
-        "id": 792971,
+        "id": 5388160,
         "runnerId": "webapprunner",
-        "displayName": "Run index.html",
-        "lastRunTimeStamp": 1467736966851
-      }
-    },
-    {
-      "filePath": "/webapp/test/mockServer.html",
-      "previewMode": 1,
-      "dataMode": 1,
-      "workspace": "withoutWorkspace",
-      "urlParameters": [
-        {
-          "paramName": "",
-          "paramValue": "",
-          "paramActive": false
-        },
-        {
-          "paramName": "",
-          "paramValue": "",
-          "paramActive": false
-        }
-      ],
-      "hashParameter": "testing-display",
-      "ui5ActiveVersion": "",
-      "ui5VerSource": null,
-      "isDefaultVersion": 0,
-      "appsVersion": [],
-      "_metadata": {
-        "id": 37567899,
-        "runnerId": "webapprunner",
-        "displayName": "App (Mock Server)"
-      }
-    },
-    {
-      "filePath": "/FEMonitor2/webapp/test/unit/unitTests.qunit.html",
-      "previewMode": 1,
-      "dataMode": 1,
-      "workspace": "withoutWorkspace",
-      "ui5ActiveVersion": null,
-      "ui5VerSource": null,
-      "isDefaultVersion": 1,
-      "urlParameters": [
-        {
-          "paramName": "",
-          "paramValue": "",
-          "paramActive": false
-        },
-        {
-          "paramName": "",
-          "paramValue": "",
-          "paramActive": false
-        }
-      ],
-      "_metadata": {
-        "id": 8735167,
-        "runnerId": "webapprunner",
-        "displayName": "Unit Tests"
-      }
-    },
-    {
-      "filePath": "/FEMonitor2/webapp/test/integration/opaTests.qunit.html",
-      "previewMode": 1,
-      "dataMode": 1,
-      "workspace": "withoutWorkspace",
-      "ui5ActiveVersion": null,
-      "ui5VerSource": null,
-      "isDefaultVersion": 1,
-      "urlParameters": [
-        {
-          "paramName": "",
-          "paramValue": "",
-          "paramActive": false
-        },
-        {
-          "paramName": "",
-          "paramValue": "",
-          "paramActive": false
-        }
-      ],
-      "hashParameter": "",
-      "_metadata": {
-        "id": 3635224,
-        "runnerId": "webapprunner",
-        "displayName": "OPA Tests"
-      }
-    },
-    {
-      "filePath": "/FEMonitor2/webapp/test/testsuite.qunit.html",
-      "previewMode": 1,
-      "dataMode": 1,
-      "workspace": "withoutWorkspace",
-      "ui5ActiveVersion": null,
-      "ui5VerSource": null,
-      "isDefaultVersion": 1,
-      "urlParameters": [
-        {
-          "paramName": "",
-          "paramValue": "",
-          "paramActive": false
-        },
-        {
-          "paramName": "",
-          "paramValue": "",
-          "paramActive": false
-        }
-      ],
-      "hashParameter": "",
-      "_metadata": {
-        "id": 7524840,
-        "runnerId": "webapprunner",
-        "displayName": "Test Suite (Unit, OPA)"
+        "displayName": "Run App ( Mocked )",
+        "lastRunTimeStamp": 1467743985210
       }
     }
   ]

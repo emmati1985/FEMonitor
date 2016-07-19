@@ -1,7 +1,7 @@
 sap.ui.define([
-		"sap/ui/base/Object",
-		"sap/ui/model/Sorter"
-	], function (BaseObject, Sorter) {
+	"sap/ui/base/Object",
+	"sap/ui/model/Sorter"
+], function(BaseObject, Sorter) {
 	"use strict";
 
 	return BaseObject.extend("femonitor.model.GroupSortState", {
@@ -17,7 +17,7 @@ sap.ui.define([
 		 * @param {function} fnGroupFunction the grouping function to be applied
 		 * @alias femonitor.model.GroupSortState
 		 */
-		constructor: function (oViewModel, fnGroupFunction) {
+		constructor: function(oViewModel, fnGroupFunction) {
 			this._oViewModel = oViewModel;
 			this._fnGroupFunction = fnGroupFunction;
 		},
@@ -28,7 +28,7 @@ sap.ui.define([
 		 * @param {string} sKey - the key of the field used for grouping
 		 * @returns {sap.ui.model.Sorter[]} an array of sorters
 		 */
-		sort: function (sKey) {
+		sort: function(sKey) {
 			var sGroupedBy = this._oViewModel.getProperty("/groupBy");
 
 			if (sGroupedBy !== "None") {
@@ -46,20 +46,32 @@ sap.ui.define([
 		 * @param {string} sKey - the key of the field used for grouping
 		 * @returns {sap.ui.model.Sorter[]} an array of sorters
 		 */
-		group: function (sKey) {
+		group: function(sKey) {
 			var aSorters = [];
+			switch (sKey) {
+				case "argentina/Cae_status":
+					this._oViewModel.setProperty("/sortBy", "argentina/Cae_status");
+					this._oViewModel.setProperty("/groupBy", "argentina/Cae_status");
 
-			if (sKey === "Importe") {
-				// Grouping means sorting so we set the select to the same Entity used for grouping
-				this._oViewModel.setProperty("/sortBy", "Importe");
+					aSorters.push(
+						new Sorter("argentina/Cae_status", false,
+							this._fnGroupFunction.bind(this))
+					);
+					break;
+				case "Fecha":
+					this._oViewModel.setProperty("/sortBy", "Fecha");
+					this._oViewModel.setProperty("/groupBy", "Fecha");
 
-				aSorters.push(
-					new Sorter("Importe", false,
-						this._fnGroupFunction.bind(this))
-				);
-			} else if (sKey === "None") {
-				// select the default sorting again
-				this._oViewModel.setProperty("/sortBy", "Factura");
+					aSorters.push(
+						new Sorter("Fecha", false,
+							this._fnGroupFunction.bind(this))
+					);
+					break;
+				default:
+					this._oViewModel.setProperty("/sortBy", "Factura");
+					this._oViewModel.setProperty("/groupBy", "None");
+					break;
+
 			}
 
 			return aSorters;
